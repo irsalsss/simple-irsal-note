@@ -9,12 +9,12 @@ Online Note application that using ReactJs in client side and NodeJs in server s
 2. Git clone repository with HTTPS
 
 ```
-https://github.com/irsalsss/simple-irsal-note.git
+git clone https://github.com/irsalsss/simple-irsal-note.git
 ```
 or if with SSH 
 
 ```
-git@github.com:irsalsss/simple-irsal-note.git
+git clone git@github.com:irsalsss/simple-irsal-note.git
 ```
 
 3. Install the package for client
@@ -60,3 +60,6 @@ Server side
 - NodeJs
 - MongoDB
 - ExpressJs
+
+## Notes
+Edit feature is still under development
