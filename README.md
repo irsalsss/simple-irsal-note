@@ -1,5 +1,5 @@
 # Irsal's Note
-Note online application that using ReactJs in client side and NodeJs in server side.
+Online Note application that using ReactJs in client side and NodeJs in server side.
 
 ## Installation
 1. Make sure you have installed:
