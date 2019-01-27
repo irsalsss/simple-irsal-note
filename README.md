@@ -17,13 +17,13 @@ or if with SSH
 git@github.com:irsalsss/simple-irsal-note.git
 ```
 
-3. Install package for client
+3. Install the package for client
 ```
 cd client/
 npm install
 ```
 
-4. Install packages for server
+4. Install the packages for server
 ```
 cd server/
 npm install
@@ -48,3 +48,15 @@ npm start
 ```
 
 Then the App will be launched in http://localhost:8080/
+
+## Tech
+
+Client side
+- ReactJs
+- Redux
+- Webpack
+
+Server side
+- NodeJs
+- MongoDB
+- ExpressJs
