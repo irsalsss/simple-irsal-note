@@ -1,0 +1,32 @@
+.form-flex{
+  height: 660px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url('../assets/borobudur.png');
+  background-color: black;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-title-flex {
+  font-size: 28px;
+  color: #FD6A02;
+  font-weight: 600;
+  margin: 40px 40px 20px;
+}
+
+.card-flex{
+  // height: 660px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  margin: 10px 40px;
+}
+
+.hr {
+  border: solid 3px #FD6A02;
+  margin: 0 40px;
+}

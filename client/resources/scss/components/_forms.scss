@@ -1,0 +1,54 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.form-note {
+  height: 350px;
+  width: 300px;
+  background-color: #FD6A02;
+  border-radius: 15px;
+  padding: 30px 20px 30px;
+}
+
+.title-note {
+  font-size: 20px;
+  color: white;
+  font-weight: 600;
+}
+
+.label-note {
+  font-size: 14px;
+  color: white;
+}
+
+.input-title-note {
+  width: 280px;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-top: 10px
+}
+
+.input-message-note {
+  width: 270px;
+  height: 100px;
+  padding: 7px 10px 10px;
+  font-size: 16px;
+  resize: none;
+  margin-top: 10px
+}
+
+.button-submit {
+  color: white;
+  background-color: #333333;
+  border-color: #333333;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
