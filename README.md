@@ -60,6 +60,3 @@ Server side
 - NodeJs
 - MongoDB
 - ExpressJs
-
-## Notes
-Edit feature is still under development

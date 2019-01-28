@@ -15,27 +15,46 @@ class Forms extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps (nextProps){
+    if(nextProps.noteToEdit) {
+      this.setState ({
+        title: nextProps.noteToEdit.title,
+        body: nextProps.noteToEdit.body
+      });
+    }
+  }
+
   handleChangeField (key, event){
     this.setState({
       [key]: event.target.value
     });
-  } 
+  }
 
-  handleSubmit (){
-    const { onSubmit } = this.props;
+  handleSubmit(){
+    const { onSubmit, onEdit, noteToEdit } = this.props;
     const { title, body } = this.state;
 
-    axios.post('http://localhost:8000/api/notes', {
+    if(!noteToEdit){
+      axios.post('http://localhost:8000/api/notes', {
       title,
       body
-    })
-    .then((res) => onSubmit(res.data))
-    .then(() => this.setState({ title: '', body: ''}));
-
+      })
+        .then((res) => onSubmit(res.data))
+        .then(() => this.setState({ title: '', body: ''}));
+    } else {
+        return axios.patch(`http://localhost:8000/api/notes/${noteToEdit._id}`, {
+          title,
+          body 
+        })
+          .then((res) => onEdit(res.data))
+          .then(() => this.setState({ title: '', body: '' }))
+    }
   }
 
   render (){
+    const { noteToEdit } = this.props;
     const { title, body } = this.state;
+
     return (
       <div className="form-note">
         <span className="title-note">Your Note</span><br /><br />
@@ -61,14 +80,20 @@ class Forms extends Component {
         value={body}
         /> <br /><br />
 
-        <button onClick={this.handleSubmit} className="button-submit">Submit</button>
+        <button onClick={this.handleSubmit} className="button-submit">{noteToEdit ? 'Update' : 'Submit'}</button>
       </div>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: data => dispatch ({ type: 'ADD_NOTE', data })
+
+const mapStateToProps = state => ({
+  noteToEdit: state.reducersNote.noteToEdit
 });
 
-export default connect(null, mapDispatchToProps)(Forms);
+const mapDispatchToProps = dispatch => ({
+  onSubmit: data => dispatch ({ type: 'ADD_NOTE', data }),
+  onEdit: data => dispatch ({ type: 'EDIT_NOTE', data})
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Forms);

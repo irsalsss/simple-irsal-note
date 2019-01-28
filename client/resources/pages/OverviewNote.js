@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import Forms from '../components/Forms';
 import Cards from '../components/Cards';
+import axios from 'axios';
 import { connect } from 'react-redux';
 
 class OverviewNote extends Component {
+
+  componentDidMount (){
+
+    const { onLoad } = this.props;
+    axios('http://localhost:8000/api/notes').then((res) => onLoad(res.data));
+
+  }
+
   render () {
     const { notes } = this.props;
     return (
@@ -28,4 +37,8 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(OverviewNote);
+const mapDispatchToProps = dispatch => ({
+  onLoad: data => dispatch({ type: 'HOME_PAGE_LOADED', data })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OverviewNote);
